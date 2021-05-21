@@ -1,12 +1,19 @@
+const {Movie, Actor} = require('../data/models')
+
 module.exports = {
-    main(req, res) {
-        return res.status(200).json({
-            metadata: {
-                status: 200,
-            },
-            data: {
-                body: 'Main Route'
-            }
-        })
+    async main(req, res) {
+        try {
+            const movies = await Movie.findAll();
+            return res.status(200).json({
+                metadata: {
+                    status: 200,
+                },
+                data: {
+                    ...movies
+                }
+            })
+        } catch (error) {
+            return res.json(error)
+        }
     },
 }

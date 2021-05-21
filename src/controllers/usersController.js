@@ -1,10 +1,20 @@
-const { User } = require('../data/models');
+const { User, Sequelize } = require('../data/models');
+const Op = Sequelize.Op;
 const bcrypt = require('bcryptjs');
 
 module.exports = {
     async register(req, res) {
         try {
             const newUser = req.body
+            const userExists = await User.findOne({ 
+                where: {
+                    [Op.or]: [
+                    {username: newUser.username},
+                    {email: newUser.email},
+                    ]
+                }
+            });
+            if (userExists) throw new Error('username or email already in use');
             newUser.password = await bcrypt.hash(newUser.password, 10);
             const createdUser = await User.create(req.body);
             const status = 201;

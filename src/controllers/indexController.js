@@ -1,12 +1,9 @@
 module.exports = {
     main(req, res) {
         return res.status(200).json({
-            metadata: {
-                status: 200,
-            },
-            data: {
-                body: 'Main Route'
-            }
+            status: 200,
+            message: 'Refer to the documentation to navigate the API',
+            data: {}
         })
     },
 }

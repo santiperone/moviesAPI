@@ -1,19 +1,23 @@
-const {Director} = require('../data/models')
+const { Director } = require('../data/models')
 
 module.exports = {
-    async main(req, res) {
+    async getAll(req, res) {
         try {
             const directors = await Director.findAll();
-            return res.status(200).json({
-                metadata: {
-                    status: 200,
-                },
-                data: {
-                    directors
-                }
-            })
+            const status = 200;
+            const results = directors.length;
+            return res.status(status).json({ status, results, data: directors });
         } catch (error) {
-            return res.json(error)
+            return res.status(500).json({ error: error.message })
+        }
+    },
+    async getOne(req, res) {
+        try {
+            const director = await Director.findByPk(req.params.id, {include: [{all: true}]});
+            const status = 200;
+            return res.status(status).json({ status, data: director });
+        } catch (error) {
+            return res.status(500).json({ error: error.message })
         }
     },
 }

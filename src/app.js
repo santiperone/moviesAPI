@@ -14,11 +14,16 @@ const showsRouter = require('./routes/shows');
 const actorsRouter = require('./routes/actors');
 const directorsRouter = require('./routes/directors');
 
+const authMiddleware = require('./middlewares/auth');
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/movies', moviesRouter);
-app.use('/shows', showsRouter);
-app.use('/actors', actorsRouter);
-app.use('/directors', directorsRouter);
+app.use('/movies', authMiddleware, moviesRouter);
+app.use('/shows', authMiddleware, showsRouter);
+app.use('/actors', authMiddleware, actorsRouter);
+app.use('/directors', authMiddleware, directorsRouter);
+
+// Catch 404 error.
+app.use((req, res) => res.status(404).json({ error: 'Endpoint not found' }));
 
 app.listen(port, () => console.log(`Server listening on PORT ${port}`));

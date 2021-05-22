@@ -4,8 +4,8 @@ Movie API project created for development challenge.
 
 ### Installation
 To run the project locally, you need to have Node.js, npm, and mysql-server installed locally.
-First, install node dependencies by running `npm install` in the project directory. This installs all dependencies declared in package.json into the node_modules directory.
-Secondly, make sure to declare your enviroment variables in '.env' file in the project directory, following the example from '.env.example'.
+First, install node dependencies by running `npm install` in the project directory. This installs all dependencies declared in package.json into the node_modules directory.<br/>
+Secondly, make sure to declare your enviroment variables in '.env' file in the project directory, following the example from '.env.example'.<br/>
 After that, you can start populating your database using the sequelize CLI:
 
 #### `npx sequelize db:create`
@@ -31,13 +31,7 @@ Runs the app in the development mode in [http://localhost:8000](http://localhost
 
 ## Functionality
 
-The API has to fulfill the following conditions:
-* Endpoints for authentication using JWT.
-  Also an endpoint for refreshing the JWT access token.
-* Endpoint for retrieving movies.
-  It should be allowed to filter and sort by some field.
-* Endpoint for retrieving the information (director included) of a specific episode of a TV Show
-* Endpoint for adding a new object (it could be for any entity you like).
+[### Documentation](https://documenter.getpostman.com/view/13805394/TzXtHzxG)
 
 ### Models
 

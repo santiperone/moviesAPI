@@ -32,21 +32,4 @@ Runs the app in the development mode in [http://localhost:8000](http://localhost
 ### Authentication
 Authentication to the API is handled via Json Web Tokens. You must first create an user, then you may retrieve your refresh Token, wich you can further use to obtain short-lived accessToken to acess the protected endpoints. (See [API Reference](https://documenter.getpostman.com/view/13805394/TzXtHzxG) for further details).
 
-<<<<<<< HEAD
-### More Information
-
 [API Reference](https://documenter.getpostman.com/view/13805394/TzXtHzxG)
-=======
-[Documentation](https://documenter.getpostman.com/view/13805394/TzXtHzxG)
-
-### Models
-
-* Movie<br/>
-  Has many actors, but one director.
-* TV Show<br/>
-  Has many actors, but one director. It also has seasons and episodes inside each of one.
-* Actor<br/>
-  Can be on different movies and tv shows.
-* Director<br/>
-  Can direct many movies and specific episodes of tv shows.
->>>>>>> cb81d2a5ae54a01ee771cde15810c8ed7da9afa5
